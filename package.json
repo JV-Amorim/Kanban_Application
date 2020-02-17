@@ -5,5 +5,14 @@
   "main": "index.js",
   "repository": "https://github.com/JV-Amorim/Kanban_Application",
   "author": "João Vitor Amorim",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2"
+  },
+  "scripts": {
+    
+  }
 }
