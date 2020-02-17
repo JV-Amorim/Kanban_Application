@@ -1,0 +1,9 @@
+{
+  "name": "kanban_project",
+  "version": "1.0.0",
+  "description": "A Kanban application using HTML, CSS and JS on client-side, and NodeJS on server-side.",
+  "main": "index.js",
+  "repository": "https://github.com/JV-Amorim/Kanban_Application",
+  "author": "João Vitor Amorim",
+  "license": "MIT"
+}
