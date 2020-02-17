@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const KanbanBoardSchema = new mongoose.Schema({
+const KanbanListController = new mongoose.Schema({
     title: String,
     sorting: Number,
     cards: [{
@@ -18,4 +18,4 @@ const KanbanBoardSchema = new mongoose.Schema({
     }],
 });
 
-mongoose.model('KanbanBoard', KanbanBoardSchema);
+mongoose.model('KanbanList', KanbanListController);

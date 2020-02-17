@@ -1,13 +1,13 @@
 const express = require('express');
 const routes = express.Router();
 
-const KanbanBoardController = require('./controllers/KanbanBoardController');
+const KanbanListController = require('./controllers/KanbanListController');
 
-routes.get('/boards', KanbanBoardController.index);
+routes.get('/lists', KanbanListController.index);
 
-routes.post('/boards', KanbanBoardController.store);            // CREATE
-routes.get('/boards/:id', KanbanBoardController.show);          // READ
-routes.put('/boards/:id', KanbanBoardController.update);        // UPDATE
-routes.delete('/boards/:id', KanbanBoardController.destroy);    // DELETE
+routes.post('/lists', KanbanListController.store);            // CREATE
+routes.get('/lists/:id', KanbanListController.show);          // READ
+routes.put('/lists/:id', KanbanListController.update);        // UPDATE
+routes.delete('/lists/:id', KanbanListController.destroy);    // DELETE
 
 module.exports = routes;

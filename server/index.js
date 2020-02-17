@@ -6,7 +6,7 @@ const app = express();
 
 app.use(express.json());
 
-mongoose.connect('mongodb://localhost:27017/kanbanboards', {
+mongoose.connect('mongodb://localhost:27017/kanbanlists', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useFindAndModify: false
