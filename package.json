@@ -7,15 +7,29 @@
   "author": "João Vitor Amorim",
   "license": "MIT",
   "dependencies": {
+    "axios": "^0.19.2",
+    "cors": "^2.8.5",
     "express": "^4.17.1",
     "mongodb": "^3.5.3",
     "mongoose": "^5.9.1",
     "require-dir": "^1.2.0"
   },
   "devDependencies": {
-    "nodemon": "^2.0.2"
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.8.4",
+    "@babel/plugin-proposal-object-rest-spread": "^7.8.3",
+    "@babel/plugin-transform-async-to-generator": "^7.8.3",
+    "@babel/polyfill": "^7.8.3",
+    "@babel/preset-env": "^7.8.4",
+    "babel-loader": "^8.0.6",
+    "nodemon": "^2.0.2",
+    "webpack": "^4.41.6",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.10.3"
   },
   "scripts": {
-    "dev": "nodemon ./server/index.js"
+    "dev": "nodemon ./server/index.js",
+    "frontDev": "webpack-dev-server --mode=development",
+    "build": "webpack --mode=production"
   }
 }
