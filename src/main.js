@@ -1,13 +1,13 @@
-import axios from 'axios';
+// import axios from 'axios';
 
-const api = axios.create({
-    baseURL: 'http://localhost:3000/api',
-});
+// const api = axios.create({
+//     baseURL: 'http://localhost:3000/api',
+// });
 
-async function readLists() {
-    const response = await api.get('/lists');
+// async function readLists() {
+//     const response = await api.get('/lists');
 
-    console.log(response);
-}
+//     console.log(response);
+// }
 
-readLists();
+// readLists();

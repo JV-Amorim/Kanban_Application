@@ -6,7 +6,7 @@ const KanbanListController = new mongoose.Schema({
     cards: [{
         name: String,
         priority: Number,
-        color: String,
+        description: String,
         toDoList: [{
             toDo: String,
             status: Boolean,
