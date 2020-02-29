@@ -11,3 +11,5 @@
 // }
 
 // readLists();
+
+console.log("Hello Kanban!");
