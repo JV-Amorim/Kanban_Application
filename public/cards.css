@@ -1,0 +1,60 @@
+.list .card {
+    margin: 0 auto;
+    margin-bottom: 10px;
+    
+    width: 93%;
+    height: 70px;
+
+    border-radius: 5px;
+    box-shadow: 0px 1px 0px 0px rgb(185, 185, 185);
+    background-color: #FFF;
+}
+
+.list .card h3 {
+    margin: 6px 8px 0px 8px;
+    height: 35px;
+
+    text-align: left;
+    font-size: 14px;
+    font-weight: 430;
+    color: rgb(53, 53, 53);
+}
+
+.list .card .cardFooter {
+    display: flex;
+    flex-direction: row;
+}
+
+.list .card .cardFooter div {
+    margin-top: 5px;
+    margin-left: 8px;
+    margin-right: 8px;
+}
+
+.list .card .tasksCounter img {    
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 3px;
+    border-color: rgb(53, 53, 53);
+
+    width: 10px;
+}
+
+.list .card .creationDate img { 
+    width: 14px;
+    margin-top: 2px;
+}
+
+.list .card .cardFooter .editDiv { 
+    margin-left: 27px;
+    margin-right: 0px;
+}
+
+.list .card span {
+    font-size: 12px;
+    color: rgb(53, 53, 53);
+
+    float: right;
+    margin-top: 2px;
+    margin-left: 3px;
+}
