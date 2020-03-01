@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kanban Board</title>
+    <link rel="shortcut icon" href="icons/favicon.ico" />
+    <link href="global.css" rel="stylesheet" />
+    <link href="lists.css" rel="stylesheet" />
+    <link href="cards.css" rel="stylesheet" />
+</head>
+
+<body>
+    <header class="pageHeader">
+        <h1>Kanban Board</h1>
+    </header>
+
+    <div id="listsContainer">
+        <div class="list">
+            <header class="listHeader">
+                <div class="listTitle">
+                    <h2>IFNMG - Tasks</h2>
+                </div>
+
+                <div class="editDiv" title="Edit List">
+                    <a href="#" id="editListButton">
+                        <img src="icons/edit_icon_black.png.png" />
+                    </a>
+                </div>
+    
+                <div class="deleteDiv" title="Delete List">
+                    <a href="#" id="deleteListButton">
+                        <img src="icons/delete_icon_black.png" />
+                    </a>
+                </div>
+            </header>
+
+            <div class="card">
+                <h3>Quantum Computation</h3>
+                
+                <footer class="cardFooter">
+                    <div class="tasksCounter" title="To Do Items">
+                        <img src="icons/check_icon_black.png" />
+                        <span>0/2</span>  
+                    </div>
+                    
+                    <div class="creationDate" title="Creation Date">
+                        <img src="icons/clock_time_icon_black.png" />
+                        <span>01/01/2020</span>
+                    </div>
+                    
+                    <div class="editDiv" title="Edit Card">
+                        <a href="#" id="editCardButton">
+                            <img src="icons/edit_icon_black.png.png" />
+                        </a>
+                    </div>
+                    
+                    <div class="deleteDiv" title="Delete Card">
+                        <a href="#" id="deleteCardButton">
+                            <img src="icons/delete_icon_black.png" />
+                        </a>
+                    </div>
+                </footer>
+            </div>
+
+            <div class="card">
+                <h3>Graphs Theory</h3>
+                
+                <footer class="cardFooter">
+                    <div class="tasksCounter" title="To Do Items">
+                        <img src="icons/check_icon_black.png" />
+                        <span>0/5</span>  
+                    </div>
+                    
+                    <div class="creationDate" title="Creation Date">
+                        <img src="icons/clock_time_icon_black.png" />
+                        <span>03/01/2020</span>
+                    </div>
+                    
+                    <div class="editDiv" title="Edit Card">
+                        <a href="#" id="editCardButton">
+                            <img src="icons/edit_icon_black.png.png" />
+                        </a>
+                    </div>
+                    
+                    <div class="deleteDiv" title="Delete Card">
+                        <a href="#" id="deleteCardButton">
+                            <img src="icons/delete_icon_black.png" />
+                        </a>
+                    </div>
+                </footer>
+            </div>
+
+            <div class="card">
+                <h3>Computer Architecture</h3>
+                
+                <footer class="cardFooter">
+                    <div class="tasksCounter" title="To Do Items">
+                        <img src="icons/check_icon_black.png" />
+                        <span>0/1</span>  
+                    </div>
+                    
+                    <div class="creationDate" title="Creation Date">
+                        <img src="icons/clock_time_icon_black.png" />
+                        <span>05/01/2020</span>
+                    </div>
+                    
+                    <div class="editDiv" title="Edit Card">
+                        <a href="#" id="editCardButton">
+                            <img src="icons/edit_icon_black.png.png" />
+                        </a>
+                    </div>
+                    
+                    <div class="deleteDiv" title="Delete Card">
+                        <a href="#" id="deleteCardButton">
+                            <img src="icons/delete_icon_black.png" />
+                        </a>
+                    </div>
+                </footer>
+            </div>
+
+            <button class="createNewCardButton">+ Create New Card</button>
+        </div>
+        
+        <div class="list">
+            <header class="listHeader">
+                <div class="listTitle">
+                    <h2>Coding Projects</h2>
+                </div>
+
+                <div class="editDiv" title="Edit List">
+                    <a href="#" id="editListButton">
+                        <img src="icons/edit_icon_black.png.png" />
+                    </a>
+                </div>
+    
+                <div class="deleteDiv" title="Delete List">
+                    <a href="#" id="deleteListButton">
+                        <img src="icons/delete_icon_black.png" />
+                    </a>
+                </div>
+            </header>
+            
+            <button class="createNewCardButton">+ Create New Card</button>
+        </div>
+
+        <div id="createNewList">
+            <button id="createNewListButton">+ Create New List</button>
+        </div>
+    </div>
+
+    <script src="./bundle.js"></script>
+</body>
+</html>

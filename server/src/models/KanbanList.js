@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 
 const KanbanListController = new mongoose.Schema({
     title: String,
+    description: String,
     sorting: Number,
     cards: [{
         name: String,
