@@ -84,8 +84,11 @@ export class ListCreation {
 
         this.resetCreationPanel();
 
-        const response = await api.post('/lists', { title, description });
+        // Getting the last index, that is, the sorting number of the new document.
+        const { data } = await api.get('/lists');
+        const sorting = data.length;
 
-        console.log(response);
+        // Creating the new document on the lists collection.
+        await api.post('/lists', { title, description, sorting });
     }
 }
