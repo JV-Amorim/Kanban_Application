@@ -1,4 +1,5 @@
 import api from './api';
+import { ListRendering } from './listRendering';
 
 export class ListCreation {
     constructor() {
@@ -90,5 +91,8 @@ export class ListCreation {
 
         // Creating the new document on the lists collection.
         await api.post('/lists', { title, description, sorting });
+
+        // The instance of ListRendering is created to refresh the lists rendered.
+        new ListRendering;
     }
 }
