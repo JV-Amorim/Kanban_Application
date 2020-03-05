@@ -1,9 +1,11 @@
 import api from './api';
 
 export class CardCreation {
-    constructor(listIndex) {
+    constructor(listIndex, listID) {
         this.cardName = "";
         this.cardDescription = "";
+
+        this.parentListID = listID;
 
         this.cardCreationDivElement = 
             document.getElementsByClassName('createNewCard')[listIndex];
@@ -101,11 +103,17 @@ export class CardCreation {
     async registerNewCard(event) {
         event.preventDefault();
 
-        const title = this.nameInputElement.value;
+        const name = this.nameInputElement.value;
         const description = this.descriptionInputElement.value;
 
         this.resetCreationPanel();
 
+        const { data } = await api.get(`/lists/${this.parentListID}`);
+        
+        data.cards.push({ name, description });
 
+        const response = await api.put(`/lists/${this.parentListID}`, data);
+
+        console.log(response);
     }
 }

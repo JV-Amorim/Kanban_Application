@@ -26,7 +26,7 @@ export class ListRendering {
             this.appendNewListNode(counter, data[counter].title, 
                 data[counter].description, data[counter]._id);
 
-            new CardCreation(counter);
+            new CardCreation(counter, data[counter]._id);
         }
 
         // Restoring the createNewListDiv in DOM.
