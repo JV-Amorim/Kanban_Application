@@ -1,4 +1,5 @@
 import api from './api';
+import { creationFormHTML } from './htmlTemplates';
 
 export class CardCreation {
     constructor(listIndex, listID) {
@@ -7,26 +8,27 @@ export class CardCreation {
 
         this.parentListID = listID;
 
+        this.isCreationPanelEnabled = false;
+        
+        this.creationPanelElement;
+        this.nameInputElement;
+        this.descriptionInputElement;
+
         this.cardCreationDivElement = 
             document.getElementsByClassName('createNewCard')[listIndex];
         this.cardCreationButtonElement = 
             document.getElementsByClassName('createNewCardButton')[listIndex];
 
-        this.isCreationPanelEnabled = false;
-        this.creationPanelElement;
-        this.nameInputElement;
-        this.descriptionInputElement;
-
-        this.registerHandlers();
+        this.enableCreationButtonFunctionality();
     }
 
-    registerHandlers() {
+    enableCreationButtonFunctionality() {
         this.cardCreationButtonElement.onclick = event => {
             if(this.isCreationPanelEnabled)
                 this.resetCreationPanel();
             else
                 this.renderCreationPanel();
-            };
+        };
     }
 
     resetCreationPanel() {
@@ -36,6 +38,31 @@ export class CardCreation {
         this.descriptionInputElement.value = '';
 
         this.cardCreationDivElement.removeChild(this.creationPanelElement);
+    }
+
+    renderCreationPanel() {
+        this.setObserverInRenderedPanel();
+
+        // The checker attribute is set with delay to not interfere in Observer.
+        setTimeout(() => { this.isCreationPanelEnabled = true; }, 100);
+
+        this.destroyOthersCreationPanels();
+        
+        this.creationPanelElement = document.createElement('div');
+        this.creationPanelElement.setAttribute('id', 'cardCreationPanel');
+        this.creationPanelElement.innerHTML = creationFormHTML;
+        
+        this.cardCreationDivElement.appendChild(this.creationPanelElement);
+
+        this.setCreationFormFunctionality();
+    }
+
+    setObserverInRenderedPanel() {
+        const obsorver = new MutationObserver(() => {
+            this.isCreationPanelEnabled = false;
+        });
+
+        obsorver.observe(this.cardCreationDivElement, { childList: true });
     }
 
     destroyOthersCreationPanels() {
@@ -58,46 +85,12 @@ export class CardCreation {
         }
     }
 
-    renderCreationPanel() {
-        setTimeout(() => {
-            this.isCreationPanelEnabled = true;
-            console.log("Is creation panel enabled? " + this.isCreationPanelEnabled);
-        }, 100);
-
-        this.destroyOthersCreationPanels();
-
-        const cardItemHTML = 
-        `
-        <form id="creationForm">
-            <input id="titleInput" name="title" type="text"
-                placeholder="Title..." required="true" minlength=1 maxlength=40 />
-
-            <textarea id="descriptionInput" name="description" type="text"
-                placeholder="Description..." required="true" minlength=1 maxlength=40></textarea>
-
-            <button type="submit">Create</button>
-        </form>
-        `;
-        
-        this.creationPanelElement = document.createElement('div');
-        this.creationPanelElement.setAttribute('id', 'cardCreationPanel');
-        this.creationPanelElement.innerHTML = cardItemHTML;
-        
-        this.cardCreationDivElement.appendChild(this.creationPanelElement);
-
+    setCreationFormFunctionality() {
         const formElement = document.getElementById('creationForm');
         formElement.onsubmit = event => this.registerNewCard(event);
 
         this.nameInputElement = document.getElementById('titleInput');
-        this.descriptionInputElement =
-            document.getElementById('descriptionInput');
-
-        const obsorver = new MutationObserver(() => {
-            this.isCreationPanelEnabled = false;
-            console.log("Is creation panel enabled? " + this.isCreationPanelEnabled);
-        });
-
-        obsorver.observe(this.cardCreationDivElement, { childList: true });
+        this.descriptionInputElement = document.getElementById('descriptionInput');
     }
 
     async registerNewCard(event) {
@@ -112,8 +105,6 @@ export class CardCreation {
         
         data.cards.push({ name, description });
 
-        const response = await api.put(`/lists/${this.parentListID}`, data);
-
-        console.log(response);
+        await api.put(`/lists/${this.parentListID}`, data);
     }
 }
