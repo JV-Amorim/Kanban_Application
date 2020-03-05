@@ -87,7 +87,11 @@
     opacity: 1;
 }
 
-.list .createNewCardButton {
+.list .createNewCard {
+    text-align: center;
+}
+
+.list .createNewCard .createNewCardButton {
     margin: 0 auto;
     padding-top: 5px;
     padding-bottom: 5px;
@@ -102,7 +106,7 @@
     font-size: 14px;
 }
 
-.list .createNewCardButton:hover {
+.list .createNewCard .createNewCardButton:hover {
     background-color: rgb(223, 223, 223);
 
     color: #241a55;

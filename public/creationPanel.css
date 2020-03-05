@@ -10,7 +10,11 @@
     border-radius: 5px;
 }
 
-#listCreationForm input, textarea, button {
+#cardCreationPanel {
+    margin-bottom: 10px;
+}
+
+#creationForm input, textarea, button {
     color: rgb(53, 53, 53);
     font-size: 14px;
 
@@ -18,7 +22,7 @@
     margin-top: 10px;
 }
 
-#listCreationForm input, textarea {
+#creationForm input, textarea {
     padding: 5px;
     
     width: 200px;

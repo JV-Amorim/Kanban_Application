@@ -40,14 +40,30 @@ export class ListCreation {
         this.listCreationDivElement.removeChild(this.creationPanelElement);
     }
 
+    destroyOthersCreationPanels() {
+        const cardCreationPanelElement = 
+            document.getElementById('cardCreationPanel');
+
+        if(cardCreationPanelElement)
+        {
+            const parent = cardCreationPanelElement.parentNode;
+            parent.removeChild(cardCreationPanelElement);
+        }
+    }
+
     renderCreationPanel() {
-        this.isCreationPanelEnabled = true;
+        setTimeout(() => {
+            this.isCreationPanelEnabled = true;
+            console.log("Is creation panel enabled? " + this.isCreationPanelEnabled);
+        }, 100);
         
+        this.destroyOthersCreationPanels();
+
         this.creationPanelElement = document.createElement('div');
         this.creationPanelElement.setAttribute('id', 'listCreationPanel');
 
         this.formElement = document.createElement('form');
-        this.formElement.setAttribute('id', 'listCreationForm');
+        this.formElement.setAttribute('id', 'creationForm');
         this.formElement.onsubmit = event => this.registerNewList(event);
 
         this.nameInputElement = document.createElement('input');
@@ -75,6 +91,13 @@ export class ListCreation {
         this.formElement.appendChild(this.submitButtonElement);
         this.creationPanelElement.appendChild(this.formElement);
         this.listCreationDivElement.appendChild(this.creationPanelElement);
+        
+        const obsorver = new MutationObserver(() => {
+            this.isCreationPanelEnabled = false;
+            console.log("Is creation panel enabled? " + this.isCreationPanelEnabled);
+        });
+
+        obsorver.observe(this.listCreationDivElement, { childList: true });
     }
 
     async registerNewList(event) {
@@ -85,12 +108,8 @@ export class ListCreation {
 
         this.resetCreationPanel();
 
-        // Getting the last index, that is, the sorting number of the new document.
-        const { data } = await api.get('/lists');
-        const sorting = data.length;
-
         // Creating the new document on the lists collection.
-        await api.post('/lists', { title, description, sorting });
+        await api.post('/lists', { title, description });
 
         // The instance of ListRendering is created to refresh the lists rendered.
         new ListRendering;

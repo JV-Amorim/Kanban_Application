@@ -1,4 +1,5 @@
 import api from './api';
+import { CardCreation } from './cardCreation';
 
 export class ListRendering {
     constructor() {
@@ -24,6 +25,8 @@ export class ListRendering {
         {
             this.appendNewListNode(counter, data[counter].title, 
                 data[counter].description, data[counter]._id);
+
+            new CardCreation(counter);
         }
 
         // Restoring the createNewListDiv in DOM.
@@ -34,9 +37,7 @@ export class ListRendering {
         const listItemHTML = 
         `
         <header class="listHeader">
-            <div class="listTitle">
-    
-            </div>
+            <div class="listTitle"></div>
     
             <div class="editDiv" title="Edit List">
                 <a href="#" class="editListButton">
@@ -50,8 +51,10 @@ export class ListRendering {
                 </a>
             </div>
         </header>
-    
-        <button class="createNewCardButton">+ Create New Card</button>
+        
+        <div class="createNewCard">
+            <button class="createNewCardButton">+ Create New Card</button>
+        </div>
         `;
         
         const listItemElement = document.createElement('div');
