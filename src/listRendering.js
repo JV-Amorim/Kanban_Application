@@ -1,5 +1,6 @@
 import api from './api';
 import { CardCreation } from './cardCreation';
+import { CardRendering } from './cardRendering';
 import { listItemHTML } from './htmlTemplates';
 
 export class ListRendering {
@@ -31,6 +32,8 @@ export class ListRendering {
             this.setDeleteButtonFunctionality(counter, data[counter]._id);
 
             new CardCreation(counter, data[counter]._id);
+
+            setTimeout(() => { new CardRendering(counter, data[counter]._id); }, 100);
         }
 
         // Restoring the createNewListDiv in DOM.

@@ -35,7 +35,7 @@
 }
 
 #listsContainer .list {
-    width: 18%;
+    width: 19%;
 
     margin-left: 20px;
     padding-bottom: 10px;
@@ -62,7 +62,7 @@
 }
 
 .listHeader .editDiv {
-    margin-left: 11px;
+    margin-left: 18px;
 }
 
 .listHeader .deleteDiv {
@@ -80,10 +80,12 @@
 }
 
 .editDiv img:hover {
+    width: 18px;
     opacity: 1;
 }
 
 .deleteDiv img:hover {
+    width: 18px;
     opacity: 1;
 }
 

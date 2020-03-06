@@ -1,5 +1,6 @@
 import api from './api';
 import { creationFormHTML } from './htmlTemplates';
+import { CardRendering } from './cardRendering';
 
 export class CardCreation {
     constructor(listIndex, listID) {
@@ -7,6 +8,7 @@ export class CardCreation {
         this.cardDescription = "";
 
         this.parentListID = listID;
+        this.parentListIndex = listIndex;
 
         this.isCreationPanelEnabled = false;
         
@@ -106,5 +108,7 @@ export class CardCreation {
         data.cards.push({ name, description });
 
         await api.put(`/lists/${this.parentListID}`, data);
+
+        new CardRendering(this.parentListIndex, this.parentListID);
     }
 }

@@ -35,3 +35,32 @@ export const listItemHTML =
     <button class="createNewCardButton">+ Create New Card</button>
 </div>
 `;
+
+export const cardItemHTML =
+`
+<h3></h3>
+                
+<footer class="cardFooter">
+    <div class="tasksCounter" title="To Do Items">
+        <img src="icons/check_icon_black.png" />
+        <span></span>  
+    </div>
+    
+    <div class="creationDate" title="Creation Date">
+        <img src="icons/clock_time_icon_black.png" />
+        <span></span>
+    </div>
+    
+    <div class="editDiv" title="Edit Card">
+        <a href="#" id="editCardButton">
+            <img src="icons/edit_icon_black.png.png" />
+        </a>
+    </div>
+    
+    <div class="deleteDiv" title="Delete Card">
+        <a href="#" id="deleteCardButton">
+            <img src="icons/delete_icon_black.png" />
+        </a>
+    </div>
+</footer>
+`;
