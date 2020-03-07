@@ -1,8 +1,10 @@
 #listCreationPanel {
     margin-top: 10px;
 
-    width: 240px;
+    width: 19%;
+    min-width: 250px;
     height: 155px;
+
     text-align: center;
     
     background-color: rgba(235, 236, 240, 0.5);
@@ -25,7 +27,7 @@
 #creationForm input, textarea {
     padding: 5px;
     
-    width: 200px;
+    width: 210px;
     resize: none;
 
     border-style: solid;

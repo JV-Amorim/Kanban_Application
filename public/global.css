@@ -14,6 +14,7 @@ body {
 .pageHeader {
     padding-top: 10px;
     padding-bottom: 10px;
+    width: auto;
     
     background-color: rgba(0, 0, 0, 0.2);
 }

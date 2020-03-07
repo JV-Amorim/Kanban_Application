@@ -4,6 +4,7 @@
 
     display: flex;
     flex-direction: row;
+    flex-shrink: 0;
     align-items: flex-start;
 }
 
@@ -15,7 +16,9 @@
     margin: 0 auto;
     padding-top: 5px;
     padding-bottom: 5px;
-    width: auto;
+    
+    width: 19%;
+    min-width: 250px;
     
     background-color: rgba(0, 0, 0, 0.3);   
     border-style: none;
@@ -36,8 +39,10 @@
 
 #listsContainer .list {
     width: 19%;
+    min-width: 250px;
 
     margin-left: 20px;
+    margin-bottom: 20px;
     padding-bottom: 10px;
 
     border-radius: 5px;
