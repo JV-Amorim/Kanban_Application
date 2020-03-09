@@ -1,5 +1,6 @@
 import api from './api';
 import { cardItemHTML } from './htmlTemplates';
+import { CardDetails } from './cardDetailsModal';
 
 export class CardRendering {
     constructor(listIndex, listID) {
@@ -27,6 +28,7 @@ export class CardRendering {
             this.setTasksCounterInNewCardItem(newCardItem, cards[counter]);
             this.setCreationDateInNewCardItem(newCardItem, cards[counter]);
             this.setDeleteButtonInNewCardItem(newCardItem, cards[counter]);
+            this.setCardDetailsFunctionality(newCardItem, cards[counter]);
 
             this.parentListElement.appendChild(newCardItem);
         }
@@ -93,6 +95,12 @@ export class CardRendering {
             newCardItem.querySelector('.deleteDiv a');
 
         deleteCardElement.onclick = (event) => this.deleteCardItem(event, cardData._id);
+    }
+
+    setCardDetailsFunctionality(newCardItem, cardData) {
+        const cardName = newCardItem.querySelector('h3');
+        
+        cardName.onclick = () => new CardDetails(cardData, this.parentListID);
     }
 
     async deleteCardItem(event, cardID) {

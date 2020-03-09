@@ -64,3 +64,11 @@ export const cardItemHTML =
     </div>
 </footer>
 `;
+
+export const toDoItemHTML =
+`
+<div class="toDoItem">
+    <input type="checkbox" class="toDoItemCheckBox">
+    <span class="toDoItemLabel">Testing;</span>
+</div>
+`;

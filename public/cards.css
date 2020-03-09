@@ -20,6 +20,11 @@
     color: rgb(53, 53, 53);
 }
 
+.list .card h3:hover {
+    cursor: pointer;
+    color: #000;
+}
+
 .list .card .cardFooter {
     display: flex;
     flex-direction: row;
