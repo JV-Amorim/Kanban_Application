@@ -67,8 +67,6 @@ export const cardItemHTML =
 
 export const toDoItemHTML =
 `
-<div class="toDoItem">
-    <input type="checkbox" class="toDoItemCheckBox">
-    <span class="toDoItemLabel">Testing;</span>
-</div>
+<input type="checkbox" class="toDoItemCheckBox" checked="false" />
+<span class="toDoItemLabel"></span>
 `;
