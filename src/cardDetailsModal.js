@@ -116,10 +116,10 @@ export class CardDetails {
             this.detailsModalElement.getElementsByClassName('newToDoForm')[0];
 
         newToDoFormElement.querySelector('button').onclick = event => 
-            this.AddNewToDoItemInCard(event, newToDoFormElement.querySelector('input'));
+            this.addNewToDoItemInCard(event, newToDoFormElement.querySelector('input'));
     }
 
-    async AddNewToDoItemInCard(event, inputElement) {
+    async addNewToDoItemInCard(event, inputElement) {
         event.preventDefault();
         
         const toDo = inputElement.value;
@@ -137,10 +137,10 @@ export class CardDetails {
 
         const response = await api.put(`/lists/${this.parentListID}`, data);
 
-        this.RefreshToDoListItems(response, cardIndex);
+        this.refreshToDoListItems(response, cardIndex);
     }
 
-    RefreshToDoListItems({ data }, cardIndex) {
+    refreshToDoListItems({ data }, cardIndex) {
         const cardContent = data.cards[cardIndex];
 
         this.cardData = cardContent;
